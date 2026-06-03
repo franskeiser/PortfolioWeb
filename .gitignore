@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+frontend/dist/
+backend/target/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor/OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Vite
+frontend/.vite/
+
+# Maven wrapper (optional — keep mvnw if you want CI to build without local Maven)
+# mvnw
+# mvnw.cmd
