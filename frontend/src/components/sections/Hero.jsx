@@ -13,11 +13,6 @@ const Hero = () => {
                 <h2 className="text-2xl font-semibold text-slate-600 dark:text-slate-400 mb-6">
                     Computer Science Undergraduate Student
                 </h2>
-                <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400 mb-8 max-w-xl">
-                    Building robust, scalable web applications with a focus on performance and
-                    user experience. I specialize in bridging the gap between complex backend
-                    architectures and intuitive frontend interfaces.
-                </p>
                 <div className="flex gap-4">
                     <a
                         className="bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"

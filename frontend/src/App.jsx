@@ -5,7 +5,6 @@ import Hero from './components/sections/Hero';
 import Stats from './components/sections/Stats';
 import TechStack from './components/sections/TechStack';
 import Projects from './components/sections/Projects';
-import Experience from './components/sections/Experience';
 import Contact from './components/sections/Contact';
 import ArchivePage from './pages/ArchivePage';
 
@@ -18,8 +17,7 @@ function MainPage() {
         <Stats />
         <TechStack />
         <Projects />
-        <Experience />
-        <Contact />
+<Contact />
         <Footer />
       </main>
     </div>

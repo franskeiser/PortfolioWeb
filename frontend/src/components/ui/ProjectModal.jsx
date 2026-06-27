@@ -1,19 +1,13 @@
 import { useEffect } from 'react';
 
 const ProjectModal = ({ project, onClose }) => {
-  // Prevent background scroll when modal is open
   useEffect(() => {
     document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
+    return () => { document.body.style.overflow = 'auto'; };
   }, []);
 
-  // Close on Escape key
   useEffect(() => {
-    const handleKey = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
+    const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [onClose]);
@@ -24,95 +18,90 @@ const ProjectModal = ({ project, onClose }) => {
       role="dialog"
       aria-modal="true"
     >
-      {/* Overlay */}
-      <div
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-        onClick={onClose}
-      />
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={onClose} />
 
-      {/* Modal content */}
-      <div className="relative w-full max-w-2xl bg-white dark:bg-card-dark rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800 animate-none">
+      <article className="relative w-full max-w-3xl bg-white dark:bg-card-dark rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
         {/* Close button */}
         <button
-          className="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors z-10"
+          className="absolute top-4 right-4 p-2 rounded-full bg-black/30 hover:bg-black/50 transition-colors z-10"
           onClick={onClose}
-          aria-label="Close modal"
+          aria-label="Close"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-slate-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-white">
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
           </svg>
         </button>
 
-        {/* Header image */}
-        <div className="h-48 md:h-64 overflow-hidden relative">
-          <img
-            alt={project.title}
-            className="w-full h-full object-cover"
-            src={project.image}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-          <div className="absolute bottom-6 left-8">
-            <h2 className="text-3xl font-bold text-white tracking-tight">
+        {/* Hero image with title overlay */}
+        <div className="h-56 md:h-72 overflow-hidden relative">
+          <img alt={project.title} className="w-full h-full object-cover" src={project.image} />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-8">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-[10px] font-bold uppercase tracking-wider bg-primary text-white px-2.5 py-1 rounded">
+                {project.category}
+              </span>
+              <span className="text-[10px] font-bold uppercase tracking-wider bg-white/20 text-white px-2.5 py-1 rounded">
+                {project.year}
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
               {project.title}
             </h2>
           </div>
         </div>
 
-        {/* Body */}
-        <div className="p-8 max-h-[60vh] overflow-y-auto">
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-medium"
+        {/* Blog body */}
+        <div className="max-h-[55vh] overflow-y-auto">
+          <div className="p-8">
+            {/* Tech stack tags */}
+            <div className="flex flex-wrap gap-2 pb-6 mb-6 border-b border-slate-100 dark:border-slate-800">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-mono"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Blog narrative */}
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-5">
+              How I Built It
+            </p>
+            <div className="space-y-5">
+              {project.story.map((paragraph, i) => (
+                <p key={i} className="text-[15px] leading-relaxed text-slate-600 dark:text-slate-400">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            {/* Action buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 pt-8 mt-8 border-t border-slate-100 dark:border-slate-800">
+              <a
+                href={project.liveUrl}
+                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-bold text-sm hover:bg-blue-600 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Description */}
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
-            {project.description}
-          </p>
-
-          {/* Key features */}
-          <h4 className="text-sm font-bold uppercase tracking-wider text-slate-900 dark:text-white mb-3">
-            Key Features
-          </h4>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2 list-none p-0 mb-8">
-            {project.features.map((feature) => (
-              <li key={feature} className="flex items-center gap-2 text-sm text-slate-500">
-                <span className="material-icons-outlined text-primary text-lg">check_circle</span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-
-          {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-slate-100 dark:border-slate-800">
-            <a
-              href={project.liveUrl}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-bold text-sm hover:bg-blue-600 transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="material-icons-outlined text-xl">rocket_launch</span>
-              Live Demo
-            </a>
-            <a
-              href={project.githubUrl}
-              className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="material-icons-outlined text-xl">code</span>
-              GitHub Repo
-            </a>
+                <span className="material-icons-outlined text-xl">rocket_launch</span>
+                Live Demo
+              </a>
+              <a
+                href={project.githubUrl}
+                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="material-icons-outlined text-xl">code</span>
+                GitHub Repo
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   );
 };

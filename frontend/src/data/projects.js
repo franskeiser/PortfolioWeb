@@ -1,167 +1,39 @@
-// Shared project data used by both the Projects section and the Archive page
 export const FEATURED_PROJECTS = [
   {
-    id: 'analytics',
-    title: 'Cloud-Native Analytics Dashboard',
-    year: '2023',
-    category: 'SaaS',
-    shortDesc: 'A real-time data visualization platform processing over 1M events daily with 0.5s latency.',
-    description:
-      'A cloud-native SaaS analytics platform built to handle massive event streams with sub-second latency. Designed for data-driven teams that need real-time insights without sacrificing reliability.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuDwiYyygcSM_8TzD3UU0agk_GIUPvLRyOXjoSCNTcY9V4tVxxf32iRNLJlhqXd5EHNBiu3CaJd7mLguiTtlUKd_UYuC1NcLgcissUlknodEHcTMiVaRrNzBFWDbYIfj7Qz1ZBej2IiPqsYz1tG8yGSTHFH0VfmQG0mhIYbyj-Nuu9xALJbxqz1Q9FOgnY7fgFLpfWAioHKt-2GzLWWBfHcX6ZgPGigaMw33KD8zPW3R_PbqETooiAAQzTGQEHoE6DHm9a7C5r6Hrn5_',
-    tags: ['Next.js', 'Go', 'ClickHouse', 'Redis'],
-    features: [
-      'Real-time event stream processing',
-      'Customizable dashboard widgets',
-      'Multi-tenant support',
-      'Alerting and anomaly detection',
+    id: 'athletic-eats',
+    title: 'AthleticEats',
+    year: '2025',
+    category: 'Full Stack',
+    shortDesc:
+      'A nutrition web app for athletes to discover high-protein recipes, plan daily meals, and calculate personalized macro and calorie targets — all in one place.',
+    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80',
+    tags: ['HTML5', 'CSS3', 'Vanilla JS', 'PHP', 'MySQL', 'XAMPP'],
+    story: [
+      'I built AthleticEats from the ground up as a full-stack project without relying on any modern frameworks — just raw HTML, CSS, and vanilla JavaScript on the frontend, and PHP with MySQL on the backend.',
+      'I started by designing the database schema and seeding it with 25+ athlete-focused recipes, then built a custom REST-like API layer in PHP using PDO for secure queries. The frontend came next: a home page with a live recipe carousel, a gallery with AJAX-powered search and category filters, a meal planner where users can build their daily schedule and watch macros update in real time, and a macro calculator using the Mifflin-St Jeor formula to generate personalized calorie targets.',
+      'One of the more satisfying challenges was wiring the calculator\'s localStorage output into the meal planner so remaining macros update dynamically as meals are added. I also built a full admin panel for CRUD operations on the recipe database.',
+      'The whole thing is served on a PHP/MySQL stack with no build tools or npm dependencies — just clean, intentional code.',
     ],
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: 'http://athleticeats.freedev.app/Athletic-Eats/',
+    githubUrl: 'https://github.com/franskeiser/Athletic-Eats',
   },
   {
-    id: 'trade-engine',
-    title: 'Decentralized Trade Engine',
-    year: '2023',
-    category: 'Fintech',
-    shortDesc: 'High-frequency matching engine for digital assets built with Rust and WebAssembly.',
-    description:
-      'A high-performance trade matching engine built with Rust and compiled to WebAssembly for in-browser execution. Handles thousands of order matches per second with full auditability.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBixNciMnnFdF46qla42RyTQPGRwNqi7pfM7Egst6tg9PPqwqXPcW8Ft8x6Lgbc39bhUS0t_mnGRh1S_lDXGnpB8Du2E3AxUpnPBBtJ_Oqj9iuIBWAeucqMfdpP7997H5YA5eEvT_4-gZxT1_Q4BkMOw4VAy-BWTvGRt_9tFHf5bbjXuqXC7gmke8600VVZGCRObIkwxpZmP7x0t0Hh83OZ5FOX-hcElBd-Zesp6-lb7qEGkcilTDv8iy2IELUFhgUgFTstbAh518o4',
-    tags: ['Rust', 'WASM', 'PostgreSQL'],
-    features: [
-      'Sub-millisecond order matching',
-      'On-chain settlement hooks',
-      'WASM-powered in-browser execution',
-      'Comprehensive audit trail',
+    id: '2pac',
+    title: '2PAC',
+    year: '2025',
+    category: 'Game Dev / AI',
+    shortDesc:
+      'A 2-player cooperative Pac-Man game where players are linked by an energy tether and ghost enemies are driven by a trained Deep Q-Network AI.',
+    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80',
+    tags: ['Unity 6', 'C#', 'PyTorch', 'ONNX', 'Weighted A*', 'Vercel'],
+    story: [
+      'We started with a simple question: what if Pac-Man forced two players to actually depend on each other? That became the tether — a visible energy link connecting both players that isn\'t just cosmetic. It has three states: blue (close together = speed boost + 1.5x score), yellow (stable but no buffs), and red (danger zone, snap timer starts). If the tether breaks, both players get stunned and lose a life. That one mechanic shaped every other design decision.',
+      'The biggest technical challenge was the ghost AI. We didn\'t want ghosts that just followed a script — we trained a Deep Q-Network in Python using PyTorch, where each ghost observes 24 values about the game state (player positions, tether charge, power-up status) and picks from 6 actions: patrol, chase Player 1, chase Player 2, cut the tether, flee the shockwave, or flee when players are powered. The trained model gets exported to ONNX and runs natively inside Unity at runtime via the AI Inference Engine — no Python needed to play.',
+      'Navigation uses Weighted A* on the tilemap grid, where tiles near the shockwave danger zone cost 3× more — so ghosts automatically route around hazards without being explicitly programmed to. The cooperative power-up system required each player to eat one of a matching pair of fruits (you can\'t eat both), forcing real coordination. Level completion also requires both players to hold buttons simultaneously and enter the exit door together. Everything is designed so one player can\'t just carry the other. We built and deployed the whole thing as a WebGL build on Vercel so anyone can play in a browser.',
     ],
-    liveUrl: '#',
-    githubUrl: '#',
-  },
-  {
-    id: 'cms',
-    title: 'AI-Driven Content CMS',
-    year: '2022',
-    category: 'MarTech',
-    shortDesc: 'Headless CMS integrated with OpenAI to provide automated SEO optimizations and content drafts.',
-    description:
-      'A headless CMS with first-class AI integration that automatically generates content drafts, suggests SEO keywords, and evaluates readability scores — all within a single editorial workflow.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuCw6DkjSi4tcDhBA5-oKYEPdy6_AeptoLIkppQcuGM14V0f4TGcTp6Nj8XcHh1R4u0uLkMcIzAa9rN1J_Lf0zH4bNtEwEJpgP9uHnsaR0Uqs6U4mq429I_YYMMiVkzNFC5LgQYIYkO32k_0XTc9YyZUzYpfSlXfgVhaWLdeNus9tQda5MyVhAMBVXXYe_nw1Jqh9INSDg1dtdjHx1-G6srHLUKdSqDLsMr_AvhBfsVEeWL4Iowi8a0Mz_2WTH8ai0doCG-xpKue5H0V',
-    tags: ['Node.js', 'OpenAI', 'Stripe', 'GraphQL'],
-    features: [
-      'AI-assisted content drafting',
-      'Automated SEO scoring',
-      'Subscription billing via Stripe',
-      'GraphQL content delivery API',
-    ],
-    liveUrl: '#',
-    githubUrl: '#',
-  },
-  {
-    id: 'design-space',
-    title: 'Collaborative Design Space',
-    year: '2022',
-    category: 'Social',
-    shortDesc: 'A browser-based vector editor featuring real-time multiplayer editing using CRDTs.',
-    description:
-      'A Figma-inspired browser-based vector design tool with real-time collaborative editing powered by CRDTs. Multiple users can simultaneously edit the same canvas without merge conflicts.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuA8mP0ISDDNcQ_ymI_LwkTru0dxI8EBACBbNg3cYNm6aAm1xZ5StuMsArRdhVU1uB69T0h45BY116dHn_e4BMWDd-ai7RFhuVG4fWB56ar9m8EMbY0FvlwW-8G5TjAkFulosmDQbGI0LVEHVmcqIiWO2U14EczxtUzbB4grh8dR_ivffBwFvam37hQ0QuR3Pifq5xaTpUgDOUF2D4QiF0JZqfPhVgtpMen-vd-w9_1fLufLpKk-MvrhM1pyvZQ-CfMNnw7CVw3q8Y5C',
-    tags: ['Yjs', 'WebSockets', 'Canvas', 'TypeScript'],
-    features: [
-      'Conflict-free real-time collaboration (CRDTs)',
-      'Full SVG vector toolset',
-      'Component library support',
-      'Export to SVG / PNG',
-    ],
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: 'https://2pac-game.vercel.app',
+    githubUrl: 'https://github.com/NyolanEly/2PAC',
   },
 ];
 
-export const ARCHIVE_PROJECTS = [
-  {
-    id: 'lumina',
-    title: 'Lumina Trading',
-    year: '2024',
-    category: 'Fintech',
-    shortDesc: 'Real-time asset management dashboard.',
-    description:
-      'Lumina Trading is a sophisticated real-time asset management dashboard designed for high-frequency traders and portfolio managers. Focuses on ultra-low latency data visualization and seamless cross-platform trade execution.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuDfH5OEQ7EvpTXLBwWodeyLH3GNnyTsvAX2aerdWDeU52kHiNICw6wYp4cf3hJ82TzUhh-Y0-jER8my6rh-f-x9Irs5ljvuOKDiKAXvADHOqYlJtYwv-8b_EVM1ZbFR3lV_oYtga0uJauSn9mQai94dCXyTl7SUvghEWDR5BOy8xl8g5-yCc0q6WPLer9MILv-tAv0gQDezHieZbMdJSa0Io7ilON2auL0F81baNssIoy13fw5QRCq0l--SQd3S4mJDX1f8ZGYyW3F-',
-    tags: ['React', 'Go', 'PostgreSQL', 'Redis'],
-    features: [
-      'Real-time order book syncing',
-      'Customizable technical indicators',
-      'Multi-wallet support (Metamask, Ledger)',
-      'Automated risk management alerts',
-    ],
-    liveUrl: '#',
-    githubUrl: '#',
-  },
-  ...FEATURED_PROJECTS,
-  {
-    id: 'kinetix',
-    title: 'Kinetix OS',
-    year: '2023',
-    category: 'Tools',
-    shortDesc: 'Collaborative 3D modeling pipeline.',
-    description:
-      'A browser-based collaborative 3D modeling environment that simplifies the pipeline between design teams and 3D engineers. Supports real-time viewport sharing and asset versioning.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuBu6ST6jgIaPkT6gF2TL5U8sGZS1wA4wJfOGosWj0IcYyeUprSg7moEonRe3ZQpMdY2ICKORP6UF1HXJwKk4-ag-lFWCw9oTHNGou4jw5zQK1-s0DykD2ReSBezZkeq7OtZm6UxM_oDaWGbt-64jiVGHmfQscH2H9eveVdR38XKlz2AR3M_1BFa7MvynBgQ5zmEWD0vny7b7VACnZcrtAtsVWWOPvnhuAqMgma0MBN8pHFVc42SYqWu_R9ZfHM40P5kDQKRO75BIQwu',
-    tags: ['Three.js', 'Rust', 'WebRTC'],
-    features: [
-      'Shared 3D viewport',
-      'Asset version control',
-      'GLTF / FBX import',
-      'Annotation tools',
-    ],
-    liveUrl: '#',
-    githubUrl: '#',
-  },
-  {
-    id: 'nordic',
-    title: 'Nordic Vault',
-    year: '2022',
-    category: 'eCommerce',
-    shortDesc: 'Headless E-commerce marketplace.',
-    description:
-      'A headless e-commerce platform built for Scandinavian artisan brands. Combines a high-performance storefront with a flexible content backend and lightning-fast checkout.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuACTF_ZnLUylv7vHY6sclbDZx9cEvOckZSyxNG7Y78Z2b0g0mo4lySt79qg0czX-fA_wLf7xVsVCRImi7IqLMuFrp0XvEegIIMM0C7keZ9cmrrloOqrJtXFKTquF3ONeMAITeATLkF51j54azkfHJLRzutN04-8HCfK6mFrEVQF-YfWq2u86Roc-UP4vP1oguCSHjAkgcNNYdog7rHOXPAHLsgdGqSktx2F33dPpwseGyGvBKlqFHBbPkZ3M0vvp59zM6_2ol-547Wx',
-    tags: ['Remix', 'GraphQL', 'Shopify'],
-    features: [
-      'Headless Shopify integration',
-      'Storyblok CMS',
-      'Instant search',
-      'Custom checkout flow',
-    ],
-    liveUrl: '#',
-    githubUrl: '#',
-  },
-  {
-    id: 'prism',
-    title: 'Prism Debugger',
-    year: '2021',
-    category: 'DevTools',
-    shortDesc: 'Visual microservices debugging tool.',
-    description:
-      'A visual debugging and observability tool for complex microservice architectures. Prism traces requests across services, visualizes dependency graphs, and surfaces bottlenecks in real time.',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuAr7lySOAuN2NW8RdRrpHKA9BS4F5c8O2XFn06bkWkJ_SZECaE11TSWC98UDtHc4scNO3LEbLnuhpz57GJlCRveI_lZItgoQPI2HHLGQZrIpb1kSiO8MdFpmX8NykGn1VvhETsMuOG1gJZawi6DneDZxQ07osqcW_JFhi_eA-UNRlBpnR-Qh0VF7Z8ceFHc7uUQmXi_6lYyDw8cPhHaQiatXQPmT6LCWcUuZOrhlTfc6RXcAnKUxJdtKBuQzRuhfVaTs58GsxA_DkCy',
-    tags: ['Vue 3', 'D3.js', 'OpenTelemetry'],
-    features: [
-      'Distributed tracing visualization',
-      'Service dependency maps',
-      'P95/P99 latency heatmaps',
-      'Slack alerting integration',
-    ],
-    liveUrl: '#',
-    githubUrl: '#',
-  },
-];
+export const ARCHIVE_PROJECTS = [...FEATURED_PROJECTS];

@@ -12,16 +12,19 @@ const TechStack = () => {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                         <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
-                            React / Next.js
+                            React
                         </span>
                         <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
-                            TypeScript
+                            JavaScript
+                        </span>
+                        <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
+                            HTML5
+                        </span>
+                        <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
+                            CSS3
                         </span>
                         <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
                             Tailwind CSS
-                        </span>
-                        <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
-                            Three.js
                         </span>
                     </div>
                 </div>
@@ -31,16 +34,16 @@ const TechStack = () => {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                         <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
-                            Node.js / Go
+                            PHP
                         </span>
                         <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
-                            PostgreSQL
+                            Python
                         </span>
                         <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
-                            Redis
+                            C#
                         </span>
                         <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
-                            GraphQL
+                            MySQL
                         </span>
                     </div>
                 </div>
@@ -53,16 +56,22 @@ const TechStack = () => {
                     </h4>
                     <div className="flex flex-wrap gap-2">
                         <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
-                            Docker
+                            Git / GitHub
                         </span>
                         <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
-                            Kubernetes
+                            Unity 6
                         </span>
                         <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
-                            AWS / GCP
+                            Vercel
                         </span>
                         <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
-                            CI/CD
+                            XAMPP
+                        </span>
+                        <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
+                            PyTorch
+                        </span>
+                        <span className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 rounded-md text-sm border border-slate-200 dark:border-slate-700">
+                            ONNX
                         </span>
                     </div>
                 </div>

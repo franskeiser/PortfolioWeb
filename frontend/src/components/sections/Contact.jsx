@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 
 const Contact = () => {
 
@@ -24,22 +23,21 @@ const Contact = () => {
         setStatus("loading");
 
         try {
-            const response = await axios.post(
-                "http://localhost:8080/api/contact",
-                formData
-            );
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
 
-            console.log("Success:", response.data);
-            setStatus("success");
-            setFormData({ name: '', email: '', message: '' })
-        } catch (error) {
-            console.error("Error:", error);
-            console.error("Backend response:", error.response?.data);
-            if (error.response?.status === 409) {
-                setStatus("duplicate");
+            if (response.ok) {
+                setStatus("success");
+                setFormData({ name: '', email: '', message: '' });
             } else {
                 setStatus("error");
             }
+        } catch (error) {
+            console.error("Error:", error);
+            setStatus("error");
         }
     };
     return (
@@ -135,12 +133,6 @@ const Contact = () => {
                     {status === "error" && (
                         <div className="text-red-500 bg-red-50 rounded-lg p-3 text-sm">
                             Something went wrong. Please try again.
-                        </div>
-                    )}
-
-                    {status === "duplicate" && (
-                        <div className="text-red-500 bg-red-50 rounded-lg p-3 text-sm">
-                            You already submitted this message.
                         </div>
                     )}
 
