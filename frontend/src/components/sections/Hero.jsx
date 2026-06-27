@@ -1,3 +1,5 @@
+import profileImg from '../../assets/profile.jpg';
+
 const Hero = () => {
     return (
         <section className="flex flex-col md:flex-row gap-12 items-start mb-24">
@@ -22,7 +24,7 @@ const Hero = () => {
                     </a>
                     <a
                         className="border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 px-6 py-3 rounded-lg font-medium transition-colors"
-                        href="./public/Resume.pdf"
+                        href="/Resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -35,7 +37,7 @@ const Hero = () => {
                 <img
                     alt="Profile"
                     className="w-full h-full object-cover rounded-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-500 shadow-xl"
-                    src="./src\assets\profile.jpg"
+                    src={profileImg}
                 />
             </div>
         </section>
