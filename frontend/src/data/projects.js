@@ -48,7 +48,7 @@ export const FEATURED_PROJECTS = [
     category: 'Full Stack / Mobile',
     shortDesc:
       'A fleet management system for a bus operation, built as a web dispatcher portal paired with an offline-first mobile driver app, with live vehicle telemetry flowing between them.',
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80',
+    image: img('fleetwise.png'),
     tags: ['ASP.NET Core', '.NET MAUI', 'Blazor', 'C#', 'Supabase', 'SQL Server', 'QuestPDF'],
     story: [
       'FleetWise started from a question the team kept coming back to: how does a bus operation actually keep track of where its buses are, who is driving them, and whether anything is going wrong out on the road? The goal was to build the whole thing, not just one screen of it, so it was split into two apps that talk to each other. There is a web portal for the people in the office, the dispatchers and admins, and a mobile app that rides along with the driver.',
@@ -99,7 +99,7 @@ export const FEATURED_PROJECTS = [
     category: 'Game Dev / AI',
     shortDesc:
       'A 2-player cooperative Pac-Man game where players are linked by an energy tether and ghost enemies are driven by a trained Deep Q-Network AI.',
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80',
+    image: img('2pac.png'),
     tags: ['Unity 6', 'C#', 'PyTorch', 'ONNX', 'Weighted A*', 'Vercel'],
     story: [
       'We started with a simple question: what if Pac-Man forced two players to actually depend on each other? That became the tether — a visible energy link connecting both players that isn\'t just cosmetic. It has three states: blue (close together = speed boost + 1.5x score), yellow (stable but no buffs), and red (danger zone, snap timer starts). If the tether breaks, both players get stunned and lose a life. That one mechanic shaped every other design decision.',
