@@ -69,6 +69,23 @@ export const FEATURED_PROJECTS = [
     githubUrl: 'https://github.com/imyvj/luma',
   },
   {
+    id: 'smishing-detector',
+    title: 'Smishing Detector',
+    year: '2026',
+    category: 'Machine Learning / Security',
+    shortDesc:
+      'A deep learning system that catches smishing, the SMS phishing texts that fake bank and e-wallet alerts. It pairs a from-scratch CNN-BiGRU that reads the message with a Random Forest that inspects the link, then combines their votes into one verdict.',
+    image: 'https://images.unsplash.com/photo-1556656793-08538906a9f8?w=800&q=80',
+    tags: ['Python', 'NumPy', 'scikit-learn', 'NLTK', 'Flask', 'CNN-BiGRU', 'Random Forest'],
+    story: [
+      'Almost everyone has gotten the text: a message claiming to be from your bank or e-wallet, a little bit of panic, and a link that does not quite look right. Those are smishing attacks, SMS phishing, and they hit especially hard in the Philippines where fake GCash, bank, and government messages are everywhere. The team set out to build something that could read one of these texts and tell you whether to trust it, taking direction from the hybrid CNN-BiGRU approach in the research by Mahmud and colleagues.',
+      'The design choice the team kept circling back to was that a single SMS carries two very different kinds of evidence. There is the wording of the message, and there is the link buried inside it, and those deserve different experts. So the system splits the message in two. The text goes to a CNN-BiGRU that learns the language patterns of a scam, while any URL is pulled out and handed to a Random Forest that judges it on hand-engineered signals like its length, how many dots and hyphens it has, whether it hides behind a link shortener or a raw IP address, and whether it carries bait words like verify or claim. A whitelist of trusted Philippine banks, e-wallets, and government domains keeps the legitimate links from raising false alarms. The two opinions are then merged through weighted soft voting into a single probability.',
+      'The part the team is proudest of is that the CNN-BiGRU was not just pulled off a shelf. Every layer was written from scratch in NumPy, the embedding lookup, the 1D convolution, the max pooling, the bidirectional GRU cells, and the dense output, each with its own forward and backward pass. Building the network by hand instead of letting a framework hide the math meant the group actually had to understand why a convolution slides the way it does and how a GRU carries memory across a sequence, which is the whole point of doing it the hard way.',
+      'All of it lives behind a Flask web app where you can paste a suspicious text and get back a clear verdict, smishing or legitimate, along with a transparent breakdown of how confident each model was and how much each one swayed the final call. What stuck with the team was how much sharper the result got from letting two specialized models disagree and then settle it by vote, rather than asking one model to do everything.',
+    ],
+    githubUrl: 'https://github.com/chrlszy/CNN-BiGru-Smishing',
+  },
+  {
     id: '2pac',
     title: '2PAC',
     year: '2026',
