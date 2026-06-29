@@ -52,6 +52,23 @@ export const FEATURED_PROJECTS = [
     githubUrl: 'https://github.com/aleahqnts/FleetWise',
   },
   {
+    id: 'luma',
+    title: 'LUMA Analyzer',
+    year: '2026',
+    category: 'Language / Compiler',
+    shortDesc:
+      'A web-based analyzer for LUMA, a custom beginner-friendly OOP language the team designed. Paste or upload source code and it runs full lexical and syntax analysis, breaking the code into tokens and flagging grammar errors line by line.',
+    image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=800&q=80',
+    tags: ['Java 21', 'Spring Boot', 'React', 'Lexical Analysis', 'LL(1) Parser', 'Compiler Design'],
+    story: [
+      'LUMA, short for Language Under Minimal Ambiguity, began with a frustration the team had all felt as students. Learning to code usually means choosing between the heavy, verbose syntax of Java and the strict, invisible indentation rules of Python. LUMA was the group\'s answer to that: a custom object-oriented language that keeps the readability of Python and the structure of Java while dropping the boilerplate that scares beginners away. The motto says it best, code that shines.',
+      'This repository is the tool that makes the language real. Designing a language on paper is one thing, but the team wanted something you could actually type code into and watch get analyzed. So it was built as a full-stack web app, a React frontend where you paste or upload a LUMA program, backed by a Spring Boot service on Java 21 that does the heavy lifting. The first stage is the lexer. It scans the raw source character by character and turns it into a stream of tokens, recognizing LUMA\'s own keywords like station, shield, and contracts, its operators, literals, and delimiters, and marking anything it does not understand as an invalid token instead of silently giving up.',
+      'The second stage is where it gets genuinely compiler-shaped. The syntax analyzer is a table-driven LL(1) parser that pushes a start symbol onto a stack and walks the token stream against a formal grammar, matching terminals, expanding rules, and tracking things like parenthesis depth and multi-variable declarations along the way. When the input does not fit the grammar, it does not just fail, it collects the errors and reports them so the programmer knows exactly what went wrong and where. The whole thing is backed by a test runner that throws hundreds of syntax cases at the parser to keep its behavior honest.',
+      'What made LUMA special for the team was that it was not just an app built on top of existing tools, it was the tools. Writing a lexer and a parser by hand turns the abstract theory of automata and grammars into something you can see working on screen, and getting seven people to agree on one coherent language and then build the software that enforces it was the real lesson.',
+    ],
+    githubUrl: 'https://github.com/imyvj/luma',
+  },
+  {
     id: '2pac',
     title: '2PAC',
     year: '2026',
