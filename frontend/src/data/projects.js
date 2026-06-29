@@ -18,6 +18,23 @@ export const FEATURED_PROJECTS = [
     githubUrl: 'https://github.com/franskeiser/Athletic-Eats',
   },
   {
+    id: 'resume-roaster',
+    title: 'Resume Roaster',
+    year: '2026',
+    category: 'Full Stack / AI',
+    shortDesc:
+      'AI-powered, no-BS resume feedback for tech professionals — upload your resume and get a brutally honest, technical critique with an overall score, section-by-section feedback, and concrete action items you can export as a PDF.',
+    image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80',
+    tags: ['Java', 'Spring Boot', 'React', 'Vite', 'Tailwind CSS', 'PostgreSQL', 'Gemini'],
+    story: [
+      'Resume Roaster analyzes your resume with Google\'s Gemini models and returns a brutally honest, technical critique. Instead of generic praise, it scores your resume, breaks down feedback section by section, and hands you concrete action items — then lets you export the whole roast as a polished PDF.',
+      'I built it as two independently deployed services: a React + Vite SPA on Vercel talking over HTTPS to a Java 17 / Spring Boot 3.5 REST API on Railway, with PostgreSQL in production (and H2 in-memory for local dev). The backend handles multi-format ingestion — PDF, DOCX, and plain text via Apache PDFBox and POI, plus PNG/JPG images through Tess4J (Tesseract) on-device OCR — extracts the text, and sends it to Gemini\'s generateContent endpoint for analysis.',
+      'A few things I focused on: the Gemini model is fully configurable from an environment variable, so I can swap models without touching code; the AI client retries with backoff to gracefully ride out transient rate-limit and overload errors; and the report generation produces a clean, downloadable PDF of the critique. The frontend is a responsive Tailwind UI that walks the user from upload to roast to export in one flow.',
+    ],
+    liveUrl: 'https://ai-resume-roaster-rho.vercel.app/',
+    githubUrl: 'https://github.com/franskeiser/AI-Resume-Roaster',
+  },
+  {
     id: '2pac',
     title: '2PAC',
     year: '2025',
