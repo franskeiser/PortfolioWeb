@@ -1,3 +1,10 @@
+// Import every image in the assets folder at once (Vite glob import).
+const images = import.meta.glob('../assets/*.{png,jpg,jpeg,webp,svg}', {
+  eager: true,
+  import: 'default',
+});
+const img = (name) => images[`../assets/${name}`];
+
 export const FEATURED_PROJECTS = [
   {
     id: 'athletic-eats',
@@ -6,7 +13,7 @@ export const FEATURED_PROJECTS = [
     category: 'Full Stack',
     shortDesc:
       'A nutrition web app for athletes to discover high-protein recipes, plan daily meals, and calculate personalized macro and calorie targets — all in one place.',
-    image: 'frontend/src/assets/athletic-eats.png',
+    image: img('athletic-eats.png'),
     tags: ['HTML5', 'CSS3', 'Vanilla JS', 'PHP', 'MySQL', 'XAMPP'],
     story: [
       'I built AthleticEats from the ground up as a full-stack project without relying on any modern frameworks — just raw HTML, CSS, and vanilla JavaScript on the frontend, and PHP with MySQL on the backend.',
@@ -24,7 +31,7 @@ export const FEATURED_PROJECTS = [
     category: 'Full Stack / AI',
     shortDesc:
       'AI-powered, no-BS resume feedback for tech professionals — upload your resume and get a brutally honest, technical critique with an overall score, section-by-section feedback, and concrete action items you can export as a PDF.',
-    image: 'frontend/src/assets/resume-roaster.png',
+    image: img('resume-roaster.png'),
     tags: ['Java', 'Spring Boot', 'React', 'Vite', 'Tailwind CSS', 'PostgreSQL', 'Gemini'],
     story: [
       'Resume Roaster analyzes your resume with Google\'s Gemini models and gives you an honest technical critique. Instead of generic praise, it scores your resume, breaks the feedback down section by section, and gives you concrete action items. You can then export the whole roast as a clean PDF.',
