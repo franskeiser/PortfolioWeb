@@ -80,15 +80,17 @@ const ProjectModal = ({ project, onClose }) => {
 
             {/* Action buttons */}
             <div className="flex flex-col sm:flex-row gap-3 pt-8 mt-8 border-t border-slate-100 dark:border-slate-800">
-              <a
-                href={project.liveUrl}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-bold text-sm hover:bg-blue-600 transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="material-icons-outlined text-xl">rocket_launch</span>
-                Live Demo
-              </a>
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-white font-bold text-sm hover:bg-blue-600 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="material-icons-outlined text-xl">rocket_launch</span>
+                  Live Demo
+                </a>
+              )}
               <a
                 href={project.githubUrl}
                 className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-bold text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700"

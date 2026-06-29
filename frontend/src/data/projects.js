@@ -2,7 +2,7 @@ export const FEATURED_PROJECTS = [
   {
     id: 'athletic-eats',
     title: 'AthleticEats',
-    year: '2025',
+    year: '2026',
     category: 'Full Stack',
     shortDesc:
       'A nutrition web app for athletes to discover high-protein recipes, plan daily meals, and calculate personalized macro and calorie targets — all in one place.',
@@ -35,9 +35,26 @@ export const FEATURED_PROJECTS = [
     githubUrl: 'https://github.com/franskeiser/AI-Resume-Roaster',
   },
   {
+    id: 'fleetwise',
+    title: 'FleetWise',
+    year: '2026',
+    category: 'Full Stack / Mobile',
+    shortDesc:
+      'A fleet management system for a bus operation, built as a web dispatcher portal paired with an offline-first mobile driver app, with live vehicle telemetry flowing between them.',
+    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80',
+    tags: ['ASP.NET Core', '.NET MAUI', 'Blazor', 'C#', 'Supabase', 'SQL Server', 'QuestPDF'],
+    story: [
+      'FleetWise started from a question I kept coming back to: how does a bus operation actually keep track of where its buses are, who is driving them, and whether anything is going wrong out on the road? I wanted to build the whole thing, not just one screen of it, so I split it into two apps that talk to each other. There is a web portal for the people in the office, the dispatchers and admins, and a mobile app that rides along with the driver.',
+      'The web side is an ASP.NET Core app on .NET 10. I built out the pieces a real dispatcher would reach for: a live fleet map, a dispatch board, schedules, a vehicle roster with maintenance logs and pre-trip checklists, and user management with proper roles and permissions behind ASP.NET Identity. There is a fare calculator and a reports section that exports clean PDFs with QuestPDF. The part I am most proud of is the telemetry pipeline. Every active trip streams its position, speed, and passenger count into a Supabase table, and the map just reads from there. In development I wrote a background simulator that nudges each bus along its route every few seconds, but I was careful to make it write to the exact same table real hardware would, so the read path never knows or cares whether the data is simulated. The day a real GPS unit shows up, nothing on the dashboard has to change.',
+      'The mobile app is where it got interesting for me. It is a .NET MAUI Blazor Hybrid app, the driver-facing companion, and the hard constraint was simple: buses drive through dead zones. If the app only worked with a perfect connection, it was useless. So I made it offline-first. Every GPS reading and every trip the driver finishes gets written to a local SQLite queue first, so it survives a lost signal or the app being killed mid-route. A flush loop quietly pushes those rows up to Supabase whenever the connection comes back and deletes the local copy only once the server confirms it. Drivers log in with JWT sessions and get messages and notifications pushed to them while they drive.',
+      'What I took away from FleetWise is what it feels like to build a system instead of an app. Two codebases, a shared backend, real-time data, offline resilience, role-based access, and a reporting layer all had to agree on the same model of the world. Getting them to line up taught me more than any single feature ever did.',
+    ],
+    githubUrl: 'https://github.com/aleahqnts/FleetWise',
+  },
+  {
     id: '2pac',
     title: '2PAC',
-    year: '2025',
+    year: '2026',
     category: 'Game Dev / AI',
     shortDesc:
       'A 2-player cooperative Pac-Man game where players are linked by an energy tether and ghost enemies are driven by a trained Deep Q-Network AI.',
