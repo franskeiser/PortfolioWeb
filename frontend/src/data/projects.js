@@ -6,7 +6,7 @@ export const FEATURED_PROJECTS = [
     category: 'Full Stack',
     shortDesc:
       'A nutrition web app for athletes to discover high-protein recipes, plan daily meals, and calculate personalized macro and calorie targets — all in one place.',
-    image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80',
+    image: './../assets/projects/athletic-eats.png',
     tags: ['HTML5', 'CSS3', 'Vanilla JS', 'PHP', 'MySQL', 'XAMPP'],
     story: [
       'I built AthleticEats from the ground up as a full-stack project without relying on any modern frameworks — just raw HTML, CSS, and vanilla JavaScript on the frontend, and PHP with MySQL on the backend.',
